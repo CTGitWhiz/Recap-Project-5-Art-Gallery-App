@@ -1,7 +1,17 @@
-export default function HomePage() {
+import useSWR from 'swr';
+import ArtPieces from '../components/ArtPieces';
+
+const fetcher = (url) => fetch(url).then((res) => res.json())
+
+export default function Home() {
+  const { data, error } = useSWR('https://example-apis.vercel.app/api/art', fetcher)
+
+  if (error) return <div>Failed to load art pieces</div>
+  if (!data) return <div>Loading...</div>
+
   return (
     <div>
-      <h1>Hello from Next.js</h1>
+      <ArtPieces pieces={data} />
     </div>
-  );
+  )
 }
