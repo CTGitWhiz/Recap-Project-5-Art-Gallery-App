@@ -3,14 +3,8 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "example-apis.vercel.app/",
-      },
-    ],
+    domains: ["example-apis.vercel.app"],
   },
 
   reactStrictMode: true,
