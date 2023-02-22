@@ -1,11 +1,12 @@
 import Image from "next/image";
 
-export default function ArtPiecePreview({image, title, artist}) {
-return (
+export default function ArtPiecePreview({ imageSource, name, artist }) {
+  console.log(imageSource);
+  return (
     <div>
-<image src={image} alt={title} />
-<p>{title}</p>
-<p>{artist}</p>
+      <Image src={imageSource} alt={name} width={300} height={300} />
+      <p>{name}</p>
+      <p>{artist}</p>
     </div>
-)
+  );
 }
