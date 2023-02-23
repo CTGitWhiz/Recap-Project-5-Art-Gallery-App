@@ -6,6 +6,8 @@ export default function ArtPieceDetails({ picData }) {
   const { slug } = router.query;
   const artPiece = picData.find((piece) => piece.slug === slug);
   const { imageSource, name, artist, year, genre } = artPiece;
+
+
   return (
     <>
       <Image
@@ -20,6 +22,7 @@ export default function ArtPieceDetails({ picData }) {
         <li>Year: {year}</li>
         <li>Genre: {genre}</li>
       </ul>
+      <button onClick={() => router.back()}>Back</button>
     </>
   );
 }
